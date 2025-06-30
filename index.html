@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuxion - Nutrición Inteligente, Vida Plena y Oportunidad de Negocio</title>
+    <style>
+        /* Variables de Color (Ajusta según la paleta de Fuxion) */
+        :root {
+            --primary-color: #007bff; /* Un azul vibrante */
+            --secondary-color: #28a745; /* Un verde energizante */
+            --accent-color: #ffc107; /* Un amarillo o naranja cálido */
+            --fuxion-purple: #6a0dad; /* Un tono púrpura/violeta que a veces se asocia con la marca */
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --white: #fff;
+            --dark-gray: #444;
+            --light-gray: #f2f2f2;
+        }
+
+        /* Fuente (Ejemplo: usa una fuente moderna y legible) */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Google Fonts: Montserrat */
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Para un desplazamiento suave */
+            scroll-padding-top: 80px;
+        }
+
+        /* Importar Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--fuxion-purple); /* Usamos el púrpura para resaltar */
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        /* Estilos de Botones */
+        .btn-primary, .btn-secondary, .btn-product, .btn-whatsapp, .btn-modal-close {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px 5px;
+            border-radius: 25px; /* Bordes redondeados para un look moderno */
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1.05em;
+        }
+
+        .btn-primary {
+            background-color: var(--fuxion-purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #560080; /* Púrpura más oscuro */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #1e7e34; /* Un tono más oscuro */
+            transform: translateY(-2px);
+        }
+
+        .btn-product {
+            background-color: var(--accent-color);
+            color: var(--dark-gray);
+            padding: 10px 20px;
+            font-size: 1em;
+        }
+
+        .btn-product:hover {
+            background-color: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366; /* Color de WhatsApp */
+            color: var(--white);
+            font-size: 1.1em;
+            padding: 14px 30px;
+            border-radius: 25px; /* Más redondeado para parecer un botón de chat */
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E; /* Verde más oscuro de WhatsApp */
+            transform: translateY(-2px);
+        }
+        
+        .btn-modal-close {
+            background-color: #dc3545; /* Rojo para cerrar */
+            color: var(--white);
+        }
+
+        .btn-modal-close:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+        /* HEADER / BARRA SUPERIOR DE NAVEGACIÓN */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky; /* Para que quede fija arriba */
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px; /* Ajusta el tamaño del logo */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 600; /* Montserrat tiene buen peso para enlaces */
+            transition: color 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        nav ul li a:hover {
+            color: var(--fuxion-purple);
+        }
+
+        /* SECCIÓN PRINCIPAL / HERO */
+        #hero {
+            background: linear-gradient(to right, rgba(106, 13, 173, 0.8), rgba(106, 13, 173, 0.8)), url('https://via.placeholder.com/1920x1080?text=Fondo+Hero+Fuxion'); /* COMENTARIO: Ingresa una imagen de fondo atractiva para el hero */
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero .container {
+            display: flex;
+            flex-direction: column; /* Por defecto, para móviles */
+            align-items: center;
+            justify-content: center;
+            position: relative; /* Para que el contenido esté encima del fondo */
+            z-index: 10;
+        }
+
+        @media (min-width: 768px) { /* Diseño para pantallas más grandes */
+            #hero .container {
+                flex-direction: row; /* En pantallas grandes, texto y imagen lado a lado */
+                justify-content: space-between;
+                text-align: left;
+            }
+            .hero-content {
+                flex: 1;
+                padding-right: 40px;
+                text-align: left; /* Alinear texto a la izquierda en desktop */
+            }
+            .hero-image {
+                flex: 1;
+                display: flex; /* Para centrar la imagen si es necesario */
+                justify-content: center;
+                align-items: center;
+            }
+            .hero-image img {
+                max-width: 90%; /* Ajustar tamaño de imagen en desktop */
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            }
+        }
+
+        #hero h1 {
+            font-size: 3.5em; /* Más grande y prominente */
+            margin-bottom: 20px;
+            color: var(--white); /* Asegura que el título sea blanco */
+            font-weight: 700; /* Montserrat Bold */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            margin-bottom: 35px;
+            font-weight: 400; /* Montserrat Regular */
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+        }
+
+        .hero-buttons .btn-primary,
+        .hero-buttons .btn-secondary {
+            font-size: 1.2em;
+            padding: 15px 35px;
+            margin: 5px; /* Pequeño margen entre botones */
+        }
+
+        /* SECCIÓN SOBRE FUXION */
+        #about-fuxion {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        #about-fuxion .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px; 
+        }
+
+        @media (min-width: 768px) {
+            #about-fuxion .content-grid {
+                flex-direction: row;
+                text-align: left;
+            }
+            #about-fuxion .text-content {
+                flex: 1;
+                padding-right: 30px;
+            }
+            #about-fuxion .image-content {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #about-fuxion .image-content img {
+                max-width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            }
+        }
+
+        #about-fuxion h2 {
+            margin-bottom: 40px;
+            color: var(--fuxion-purple);
+        }
+
+        #about-fuxion p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        #about-fuxion .features-grid { /* Usamos esta clase aquí también */
+            display: flex; /* Usamos flexbox para centrar y distribuir */
+            flex-wrap: wrap;
+            justify-content: center; /* Centra las tarjetas horizontalmente */
+            gap: 30px;
+            margin-top: 30px; /* Espacio para separar de la descripción superior */
+        }
+
+        #about-fuxion .feature-item {
+            background-color: var(--light-gray); /* Cambiado a light-gray para contraste con el fondo white de la sección */
+            border-radius: 10px;
+            padding: 30px 25px;
+            text-align: center;
+            max-width: 300px; /* Ancho máximo para cada tarjeta */
+            flex: 1 1 calc(33% - 60px); /* Aproximadamente 3 por fila en desktop, con espacio */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 250px; /* Asegura que no sean demasiado estrechas en pantallas medianas */
+        }
+
+        @media (max-width: 992px) { /* 2 por fila en tabletas */
+            #about-fuxion .feature-item {
+                flex: 1 1 calc(50% - 60px);
+            }
+        }
+
+        @media (max-width: 600px) { /* 1 por fila en móviles */
+            #about-fuxion .feature-item {
+                flex: 1 1 90%; /* Casi ancho completo */
+            }
+        }
+
+        /* Mantén los estilos del icono y texto dentro de feature-item */
+        #about-fuxion .feature-item i {
+            font-size: 3em;
+            color: var(--fuxion-purple);
+            margin-bottom: 20px;
+        }
+
+        #about-fuxion .feature-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--fuxion-purple);
+        }
+
+        #about-fuxion .feature-item p {
+            font-size: 0.98em;
+        }
+
+
+        /* SECCIÓN DE PRODUCTOS DESTACADOS */
+        #productos {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--light-gray); /* Fondo gris claro para esta sección */
+        }
+
+        #productos h2 {
+            margin-bottom: 50px;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas más anchas */
+            gap: 30px;
+            text-align: left; /* Alinear texto de tarjetas a la izquierda */
+        }
+
+        .producto-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 25px;
+            text-align: left; /* Alinear texto dentro de la tarjeta */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Para que el botón quede abajo */
+            cursor: pointer; /* Indicar que es clickeable */
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .producto-card img {
+            max-width: 100%;
+            height: 200px; /* Ajusta la altura de las imágenes de producto */
+            object-fit: contain; /* Para que las imágenes mantengan su proporción */
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .producto-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--fuxion-purple);
+            font-weight: 700;
+        }
+
+        .producto-card p {
+            font-size: 0.98em;
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+            margin-bottom: 15px;
+        }
+
+        /* SECCIÓN DE TESTIMONIOS (Ficticios) */
+        #testimonios {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white); /* Cambiado a blanco para contraste */
+        }
+
+        #testimonios h2 {
+            margin-bottom: 50px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto; /* Permite scroll horizontal si hay muchos testimonios */
+            scroll-snap-type: x mandatory; /* Para scroll suave y con "snaps" */
+            -webkit-overflow-scrolling: touch; /* Para scroll suave en iOS */
+            padding-bottom: 20px; /* Espacio para el scrollbar */
+        }
+
+        .testimonial-item {
+            background-color: var(--light-gray); /* Fondo claro para los testimonios */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 550px;
+            min-width: 300px; /* Para que se vea bien en scroll */
+            margin: 20px 15px; /* Margen entre testimonios */
+            scroll-snap-align: start; /* Para que cada item se alinee al inicio */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            font-size: 1.15em;
+            margin-bottom: 25px;
+            color: var(--dark-gray);
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+            border: 3px solid var(--fuxion-purple); /* Borde alrededor de la foto */
+        }
+
+        .testimonial-author h4 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--fuxion-purple);
+        }
+
+        .testimonial-author span {
+            font-size: 0.95em;
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        /* SECTION: ¿POR QUÉ ELEGIRNOS? (Inspirado en Fuxion) */
+        #porque-elegirnos {
+            padding: 80px 0;
+            background-color: var(--background-color); /* Fondo ligeramente más oscuro */
+        }
+
+        #porque-elegirnos .container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los items se acomoden en filas */
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .feature-item {
+            background-color: var(--white); /* Fondo blanco para las características */
+            border-radius: 10px;
+            padding: 30px 25px;
+            text-align: center;
+            max-width: 300px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-item i {
+            font-size: 3em;
+            color: var(--fuxion-purple);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: var(--fuxion-purple);
+        }
+
+        .feature-item p {
+            font-size: 0.98em;
+        }
+
+        /* FORMULARIO DE CONTACTO / SUSCRIPCIÓN (WhatsApp) */
+        #contacto {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--fuxion-purple); /* Fondo morado para la llamada a la acción */
+            color: var(--white);
+        }
+
+        #contacto h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        #contacto p {
+            color: rgba(255, 255, 255, 0.9); /* Texto blanco ligeramente transparente */
+            font-size: 1.15em;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacio entre botones */
+            flex-wrap: wrap; /* Para que se apilen en pantallas pequeñas */
+        }
+
+        .btn-whatsapp {
+            /* Estilos definidos arriba */
+        }
+
+        /* SECCIÓN DE PREGUNTAS FRECUENTES (FAQ) */
+        #faq {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--white);
+        }
+
+        #faq h2 {
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            padding: 25px;
+            text-align: left;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .faq-item h3 {
+            margin-top: 0;
+            font-size: 1.35em;
+            cursor: pointer; /* Indica que se puede interactuar */
+            color: var(--fuxion-purple);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .faq-item h3:hover {
+            color: var(--primary-color); /* Un color de acento al pasar el ratón */
+        }
+
+        .faq-item h3::after { /* Flecha para indicar que es expandible */
+            content: '\25BC'; /* Flecha hacia abajo */
+            font-size: 0.8em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active h3::after {
+            transform: rotate(180deg); /* Flecha hacia arriba cuando está activo */
+        }
+
+        .faq-item p {
+            max-height: 0; /* Oculto por defecto */
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 0; /* Inicialmente sin padding */
+            padding-left: 5px; /* Un poco de indentación */
+        }
+
+        .faq-item.active p {
+            max-height: 200px; /* Ajusta este valor si el contenido es más largo */
+            padding-top: 15px;
+            padding-left: 5px;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links p {
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: middle;
+            font-size: 1.05em;
+            font-weight: 600;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.8em; /* Iconos más grandes */
+            margin: 0 12px;
+            transition: color 0.3s ease;
+            vertical-align: middle; /* Alinea los iconos con el texto */
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color); /* Amarillo para hover en iconos */
+        }
+
+        .company-info {
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        .company-info p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .company-info a {
+            color: var(--white);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* MODALES */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; /* Posición fija en la pantalla */
+            z-index: 1001; /* Z-index alto para estar por encima de todo */
+            left: 0;
+            top: 0;
+            width: 100%; /* Ancho completo */
+            height: 100%; /* Alto completo */
+            overflow: auto; /* Habilitar scroll si el contenido es muy largo */
+            background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente oscuro */
+            animation: fadeIn 0.3s ease-out; /* Animación de aparición */
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 8% auto; /* 8% desde arriba y centrado horizontalmente */
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%; /* Ancho base */
+            max-width: 700px; /* Ancho máximo */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideInTop 0.4s ease-out; /* Animación de entrada */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .modal-content img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .modal-content h3 {
+            color: var(--fuxion-purple);
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        .close-button {
+            color: var(--dark-gray);
+            font-size: 2.2em;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: var(--primary-color);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInTop {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Animaciones al hacer scroll (para .animate-on-scroll) */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Diseño Responsivo (Media Queries) */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.3em; }
+
+            #hero { padding: 70px 0; }
+            #hero h1 { font-size: 2.8em; }
+            #hero p { font-size: 1.1em; }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+
+            .productos-grid {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+            .producto-card {
+                text-align: center; /* Centrar contenido de tarjeta en móvil */
+            }
+            .producto-card img {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            header .container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 15px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .logo img {
+                margin-bottom: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column; /* Botones en columna */
+                align-items: center;
+            }
+            .btn-whatsapp, .btn-primary {
+                width: 80%; /* Ocupan más ancho */
+            }
+
+            .modal-content {
+                margin: 5% auto; /* Ajuste para móviles */
+                padding: 20px;
+            }
+            .modal-content h3 {
+                font-size: 1.5em;
+            }
+            .modal-content p {
+                font-size: 1em;
+            }
+            .close-button {
+                font-size: 1.8em;
+                top: 10px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.6em; }
+
+            #hero { padding: 50px 0; }
+            #hero h1 { font-size: 2em; }
+            #hero p { font-size: 1em; }
+
+            .hero-buttons .btn-primary,
+            .hero-buttons .btn-secondary {
+                font-size: 1em;
+                padding: 10px 20px;
+                width: 90%; /* Botones más grandes en móviles muy pequeños */
+            }
+            .btn-whatsapp { width: 90%; }
+
+            .social-links a { font-size: 1.5em; }
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="imag/fuxion_resized_150x50.jpg" alt="Logo Fuxion">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about-fuxion">Sobre Fuxion</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#oportunidad">Oportunidad</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="#contacto">Contáctanos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="animate-on-scroll">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bienestar y Oportunidad con Fuxion</h1>
+                <p>Descubre cómo nuestros productos nutracéuticos impulsan tu salud y cómo puedes construir tu propio negocio exitoso.</p>
+                <div class="hero-buttons">
+                    <a href="#productos" class="btn-primary">Explorar Productos</a>
+                    <a href="#oportunidad" class="btn-secondary">¡Únete a Fuxion!</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="imag/fuxion_resized_400x300.jpg" alt="Imagen representativa de Fuxion">
+            </div>
+        </div>
+    </section>
+
+    <section id="about-fuxion" class="animate-on-scroll">
+        <div class="container">
+            <h2>¿Qué es Fuxion?</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Fuxion es una compañía global que fusiona los conocimientos ancestrales de culturas milenarias con los últimos avances en biotecnología y nanotecnología para crear bebidas funcionales únicas. Nuestro compromiso es ofrecer productos 100% naturales, libres de químicos, azúcares y componentes genéticamente modificados, que te ayuden a alcanzar tu "Salud Verdadera".</p>
+                    <p>Creemos en la importancia de nutrir el cuerpo, la mente y el espíritu. Nuestros productos están diseñados para optimizar tu bienestar general, desde la mejora de la digestión y el sistema inmunológico hasta el aumento de la energía y el rendimiento mental.</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://via.placeholder.com/500x350?text=Filosofia+Fuxion" alt="Filosofía Fuxion">
+                </div>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-flask"></i>
+                    <h3>Innovación Científica</h3>
+                    <p>Tecnología patentada y formulaciones únicas respaldadas por la ciencia.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Ingredientes Naturales</h3>
+                    <p>Extractos de frutas, verduras y superalimentos de alta calidad.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-medal"></i>
+                    <h3>Resultados Comprobados</h3>
+                    <p>Miles de testimonios que avalan la efectividad de nuestros productos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="animate-on-scroll">
+        <div class="container">
+            <h2>Nuestros Productos Estrella</h2>
+            <div class="productos-grid">
+                <div class="producto-card" data-product-id="xigray">
+                    <img src="imag/xigray_resized_280x200.jpg" alt="Producto Xi Gray Fuxion">
+                    <h3>Xi Gray</h3>
+                    <p>Formulado con extractos de kiwi y fibras, promueve la salud digestiva, el tránsito intestinal regular y el bienestar general.</p>
+                    <button class="btn-product open-product-modal" data-product-id="xigray">Ver Detalles</button>
+                </div>
+                <div class="producto-card" data-product-id="onplus">
+                    <img src="imag/onplus_resized_280x200.jpg" alt="Producto On+ Fuxion">
+                    <h3>On+</h3>
+                    <p>Una bebida funcional con delicioso sabor a maracuyá y guaraná que te brinda energía natural y ayuda a mejorar tu rendimiento físico y mental.</p>
+                    <button class="btn-product open-product-modal" data-product-id="onplus">Ver Detalles</button>
+                </div>
+                <div class="producto-card" data-product-id="vitaxtrat">
+                    <img src="imag/vitaxtrat_resized_280x200.jpg" alt="Producto Vita XTRA-T Fuxion">
+                    <h3>Vita XTRA-T</h3>
+                    <p>Combina vitaminas y minerales con aminoácidos para potenciar tu sistema inmunológico y darte vitalidad diaria.</p>
+                    <button class="btn-product open-product-modal" data-product-id="vitaxtrat">Ver Detalles</button>
+                </div>
+                <div class="producto-card" data-product-id="bioprotect">
+                    <img src="imag/bioprotect_resized_280x200.jpg" alt="Producto Bioprotect Fuxion">
+                    <h3>Bioprotect</h3>
+                    <p>Proteína de alto valor biológico que fortalece el sistema inmunológico y ayuda al crecimiento y mantenimiento de la masa muscular.</p>
+                    <button class="btn-product open-product-modal" data-product-id="bioprotect">Ver Detalles</button>
+                </div>
+                <div class="producto-card" data-product-id="termot3">
+                    <img src="imag/termot3_resized_280x200.jpg" alt="Producto Termo T3 Fuxion">
+                    <h3>Termo T3</h3>
+                    <p>Potente quemador de grasa con té verde, té rojo y cetonas de frambuesa que te ayuda a controlar el peso de forma natural.</p>
+                    <button class="btn-product open-product-modal" data-product-id="termot3">Ver Detalles</button>
+                </div>
+                <div class="producto-card" data-product-id="floraliv">
+                    <img src="imag/floraliv_resized_280x200.jpg" alt="Producto Flora Liv Fuxion">
+                    <h3>Flora Liv</h3>
+                    <p>Bebida probiótica que restaura y mantiene el equilibrio de tu flora intestinal, mejorando la digestión y la absorción de nutrientes.</p>
+                    <button class="btn-product open-product-modal" data-product-id="floraliv">Ver Detalles</button>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="animate-on-scroll">
+        <div class="container">
+            <h2>Lo que Nuestra Comunidad Dice</h2>
+            <div class="carousel">
+                <div class="testimonial-item">
+                    <p>"¡Desde que consumo Fuxion, mi energía ha mejorado muchísimo! Ya no me siento cansado al final del día y mi digestión es mucho mejor."</p>
+                    <div class="testimonial-author">
+                        <img src="imag/imagen_resized_1_70x70.jpg" alt="Foto Testimonio Ana G.">
+                        <h4>Ana G.</h4>
+                        <span>Usuaria Satisfecha</span>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Ser distribuidor Fuxion me ha dado la flexibilidad que necesitaba. Puedo manejar mi tiempo y, lo mejor, es que ayudo a otras personas a sentirse mejor."</p>
+                    <div class="testimonial-author">
+                        <img src="imag/imagen_resized_2_70x70.jpg" alt="Foto Testimonio Carlos M.">
+                        <h4>Carlos M.</h4>
+                        <span>Emprendedor Fuxion</span>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Me encanta la variedad de productos y cómo cada uno está diseñado para un objetivo específico. Mi favorito es el Vita XTRA-T, ¡me da el impulso que necesito!"</p>
+                    <div class="testimonial-author">
+                        <img src="imag/imagen_resized_3_70x70.jpg" alt="Foto Testimonio Laura P.">
+                        <h4>Laura P.</h4>
+                        <span>Cliente Fuxion</span>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="oportunidad" class="animate-on-scroll">
+        <div class="container">
+            <h2>Tu Oportunidad de Emprender con Fuxion</h2>
+            <div class="content-grid">
+                <div class="text-content">
+                    <p>Fuxion no solo te ofrece salud, sino también la posibilidad de construir tu propio negocio independiente. Con un modelo de network marketing probado, puedes generar ingresos significativos ayudando a otros a transformar sus vidas a través de nuestros productos.</p>
+                    <p>Ofrecemos un sistema de capacitación completo, herramientas digitales y el apoyo de una comunidad global de emprendedores. Tú decides tus horarios, tu ritmo de trabajo y hasta dónde quieres llegar. ¡El límite lo pones tú!</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://via.placeholder.com/500x350?text=Oportunidad+Negocio+Fuxion" alt="Oportunidad de Negocio Fuxion">
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <button class="btn-whatsapp open-business-modal">
+                    <i class="fab fa-whatsapp"></i> Quiero ser Distribuidor
+                </button>
+                <a href="https://fuxion.com/pe/oportunidad" target="_blank" class="btn-primary">
+                    Conoce más del Negocio
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="faq" class="animate-on-scroll">
+        <div class="container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <h3>¿Qué es Fuxion y qué ofrece?</h3>
+                <p>Fuxion es una empresa que ofrece productos nutracéuticos de alta tecnología, combinando la ciencia con ingredientes naturales para mejorar la salud y el bienestar. También brinda una oportunidad de negocio para quienes desean emprender y generar ingresos.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cuáles son los beneficios de los productos Fuxion?</h3>
+                <p>Los productos Fuxion están diseñados para abordar diversas necesidades de salud, como mejorar la energía, la digestión, el sistema inmunológico, el rendimiento físico y mental, y el bienestar general, utilizando fórmulas avanzadas y componentes naturales.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cómo funciona el modelo de negocio de Fuxion?</h3>
+                <p>Es un modelo de venta directa y marketing multinivel. Puedes ganar dinero recomendando y vendiendo los productos, y también construyendo tu propio equipo de distribuidores. Ofrecen capacitaciones y apoyo constante para tu crecimiento.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cómo puedo comprar productos Fuxion?</h3>
+                <p>Puedes realizar tu compra directamente contactándonos por WhatsApp (haz clic en cualquiera de los botones "Comprar" o "Más Información"). Te asesoraremos y te guiaremos en el proceso de adquisición de los productos que mejor se adapten a tus necesidades.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Necesito experiencia previa para ser distribuidor Fuxion?</h3>
+                <p>No se requiere experiencia previa. Fuxion cuenta con un sistema de capacitación y herramientas de desarrollo profesional para que cualquier persona, desde cero, pueda aprender, crecer y tener éxito en el negocio.</p>
+            </div>
+            </div>
+    </section>
+
+    <section id="contacto" class="animate-on-scroll">
+        <div class="container">
+            <h2>¡Transforma Tu Salud y Tu Futuro Hoy!</h2>
+            <p>¿Listo para sentirte mejor y empezar a ganar? ¡Contáctanos y te asesoramos personalmente!</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/51922836879?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Fuxion." class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Hablemos por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <p>Síguenos en:</p>
+                    <a href="https://www.facebook.com/FuxionOficial/" target="_blank" aria-label="Facebook Fuxion"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fuxionoficial/" target="_blank" aria-label="Instagram Fuxion"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/user/FuxionOficial" target="_blank" aria-label="YouTube Fuxion"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="company-info">
+                    <p>© 2023 Tu Negocio Fuxion. Todos los derechos reservados.</p>
+                    <p>Desarrollado con pasión por <a href="https://fuxion.com/pe" target="_blank">Fuxion Perú</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-product-image" src="" alt="Imagen del Producto">
+            <h3 id="modal-product-title"></h3>
+            <p id="modal-product-description"></p>
+            <p id="modal-product-benefits" class="modal-product-detail"></p>
+            <p id="modal-product-ingredients" class="modal-product-detail"></p>
+            <a id="modal-product-whatsapp" href="#" class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Preguntar por este producto</a>
+            <button class="btn-modal-close close-button-bottom">Cerrar</button>
+        </div>
+    </div>
+
+    <div id="businessModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>¡Conviértete en un Emprendedor Fuxion!</h3>
+            <p>Únete a nuestra creciente familia de distribuidores y construye tu propio camino hacia la libertad financiera y el bienestar.</p>
+            <img src="https://via.placeholder.com/400x250?text=Emprende+con+Fuxion" alt="Emprende con Fuxion" style="margin-bottom: 20px;">
+            <h4>¿Qué te ofrecemos?</h4>
+            <ul>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> **Independencia y Flexibilidad:** Trabaja a tu propio ritmo y desde donde quieras.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> **Productos Innovadores:** Respaldo de una marca líder en nutracéuticos.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> **Capacitación Constante:** Programas de formación y desarrollo personal.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> **Comunidad de Apoyo:** Conecta con otros emprendedores y crece juntos.</li>
+                <li><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> **Ingresos Ilimitados:** Gana comisiones por ventas y por la construcción de tu equipo.</li>
+            </ul>
+            <p style="margin-top: 25px;">¡Es el momento de tomar las riendas de tu futuro y generar tus propias ganancias!</p>
+            <a href="https://wa.me/51922836879?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20oportunidad%20de%20negocio%20Fuxion." class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> ¡Quiero Emprender!</a>
+            <button class="btn-modal-close close-button-bottom">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
